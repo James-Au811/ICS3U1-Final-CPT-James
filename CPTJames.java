@@ -8,5 +8,8 @@ public class CPTJames{
 		con.println("Give me a number");
 		intNum = con.readInt();
 		con.println(intNum);
+		String strUName;
+		con.println("What is your name?");
+		strUName = con.readLine();
 	}
 }
