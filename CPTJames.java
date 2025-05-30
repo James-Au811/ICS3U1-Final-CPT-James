@@ -11,5 +11,14 @@ public class CPTJames{
 		String strUName;
 		con.println("What is your name?");
 		strUName = con.readLine();
+		TextInputFile themes = new TextInputFile("themes.txt");
+		String strTheme;
+		
+		con.println("Choose your theme");
+		while(themes.eof() == false){
+			strTheme = themes.readLine();
+			con.println(strTheme);
+		}
+		themes.close();
 	}
 }
