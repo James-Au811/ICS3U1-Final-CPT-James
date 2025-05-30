@@ -1,0 +1,10 @@
+basketball
+volleyball
+lacrosse
+football
+swimming
+curling
+badminton
+baseball
+bowling
+cricket

@@ -20,5 +20,7 @@ public class CPTJames{
 			con.println(strTheme);
 		}
 		themes.close();
+		String strChosenTheme;
+		strChosenTheme = con.readLine();
 	}
 }

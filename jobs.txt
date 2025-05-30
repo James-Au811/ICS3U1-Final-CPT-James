@@ -1,0 +1,10 @@
+courier
+teacher
+marketer
+janitor
+designer
+athlete
+calligrapher
+dentist
+accountant
+journalist
