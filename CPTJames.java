@@ -22,5 +22,14 @@ public class CPTJames{
 		themes.close();
 		String strChosenTheme;
 		strChosenTheme = con.readLine();
+		if(strChosenTheme == "Food"){
+			TextInputFile food = new TextInputFile("foods.txt");
+		}else if(strChosenTheme == "Sports"){
+			TextInputFile sports = new TextInputFile("sports.txt");
+		}else if(strChosenTheme == "Jobs"){
+			TextInputFile jobs = new TextInputFile("jobs.txt");
+		}else{
+			con.println("Invalid Theme");
+		}
 	}
 }
