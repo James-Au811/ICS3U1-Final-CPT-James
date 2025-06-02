@@ -4,10 +4,6 @@ public class CPTJames{
 	public static void main(String[] args){
 		Console con = new Console();
 		
-		int intNum;
-		con.println("Give me a number");
-		intNum = con.readInt();
-		con.println(intNum);
 		String strUName;
 		con.println("What is your name?");
 		strUName = con.readLine();
@@ -23,10 +19,20 @@ public class CPTJames{
 		String strChosenTheme;
 		strChosenTheme = con.readLine();
 		if(strChosenTheme == "Food"){
+		String strFoods;
+		String strSports;
+		String strJobs;
+		strFoods = "Foods";
+		strSports = "Sports";
+		strJobs = "Jobs";
+		
+		if(strChosenTheme.equals(strFoods)){
 			TextInputFile food = new TextInputFile("foods.txt");
 		}else if(strChosenTheme == "Sports"){
+		}else if(strChosenTheme.equals(strSports)){
 			TextInputFile sports = new TextInputFile("sports.txt");
 		}else if(strChosenTheme == "Jobs"){
+		}else if(strChosenTheme.equals(strJobs)){
 			TextInputFile jobs = new TextInputFile("jobs.txt");
 		}else{
 			con.println("Invalid Theme");
