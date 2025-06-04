@@ -28,7 +28,80 @@ public class CPTJames{
 		//String strUName;
 		//con.println("What is your name?");
 		//strUName = con.readLine();
+		boolean blnGame = true;
+		while(true){
+			
+			Console con = new Console("Hangman", 1280, 720);
+			CPTJamesMethods.consoleSetup(con);
+			con.repaint();
+			
+			//User Menu Selection Choice
+			char charChoice;
+			charChoice = con.getChar();
+			System.out.println("Entered character: "+charChoice);
 		
+			//User Choice Result If Statement
+			if(Character.toUpperCase(charChoice) == 'P'){
+				play(con);
+			}else if(Character.toUpperCase(charChoice) == 'L'){
+				highscore(con);
+			}else if(Character.toUpperCase(charChoice) == 'T'){
+				addtheme(con);
+			}else if(Character.toUpperCase(charChoice) == 'Q'){
+				con.closeConsole();
+			}else if(Character.toUpperCase(charChoice) == 'H'){
+				help(con);
+			}else if(Character.toUpperCase(charChoice) == 'J'){
+				jokes(con);
+			}
+		}		
+	}	
+		
+	public static void play(Console con){	
+
+		//Redraw Background for Game
+		con.setDrawColor(Color.BLACK);
+		con.fillRect(0,0,1280,720);
+		con.clear();
+		//Getting User Name
+		String strUName;
+		con.println("What is your name?");
+		strUName = con.readLine();
+		con.clear();
+		con.fillRect(0,0,1280,720);
+		
+	}
+	
+	public static void highscore(Console con){
+		
+		//Redraw Background for Game
+		con.setDrawColor(Color.BLACK);
+		con.fillRect(0,0,1280,720);
+		con.clear();
+	}
+	
+	public static void addtheme(Console con){
+		//Redraw Background for Game
+		con.setDrawColor(Color.BLACK);
+		con.fillRect(0,0,1280,720);
+		con.clear();
+	}
+	
+	public static void help(Console con){
+		//Redraw Background for Game
+		con.setDrawColor(Color.BLACK);
+		con.fillRect(0,0,1280,720);
+		con.clear();
+	}
+	
+	public static void jokes(Console con){
+		
+		//Redraw Background for Game
+		con.setDrawColor(Color.BLACK);
+		con.fillRect(0,0,1280,720);
+		con.clear();
+	}
+}	
 		//TextInputFile themes = new TextInputFile("themes.txt");
 		//String strTheme;
 		
@@ -65,3 +138,4 @@ public class CPTJames{
 
 	}
 }
+
