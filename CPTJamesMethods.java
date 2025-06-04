@@ -5,10 +5,9 @@ import java.awt.Font;
 
 public class CPTJamesMethods{
 	public static void main(String[] args){
-	
-
 			
 	}
+	
 	public static void consoleSetup(Console con){
 			BufferedImage imgHangman = con.loadImage("hangman.png.jpeg");
 			con.setDrawColor(Color.WHITE);
