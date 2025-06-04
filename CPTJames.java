@@ -5,29 +5,7 @@ import java.awt.Font;
 
 public class CPTJames{
 	public static void main(String[] args){
-		Console con = new Console("Hangman", 700, 700);
-		BufferedImage imgHangman = con.loadImage("hangman.png.jpeg");
-		con.setDrawColor(Color.WHITE);
-		con.drawString("Hangman", 300, 200);
-		con.drawString("Play Game [1]", 300, 300);
-		con.drawString("View Leaderboard [2]", 300, 350);
-		con.drawString("Add Theme [3]", 300, 400);
-		con.drawString("Quit [4]", 300, 450);
-		con.drawImage(imgHangman, 200,10);
-		con.setDrawColor(Color.BLACK);	
-		//User Menu Selection Choice
-		int intChoice;
-		intChoice = con.readInt();
 		
-		//If User picks Play Game
-		if(intChoice == 1){
-			//Redraw Background for Game
-			con.setDrawColor(Color.BLACK);
-			con.fillRect(0,0,700,700);
-		}
-		//String strUName;
-		//con.println("What is your name?");
-		//strUName = con.readLine();
 		boolean blnGame = true;
 		while(true){
 			
@@ -136,6 +114,4 @@ public class CPTJames{
 			//con.println("Invalid Theme");
 		//}
 
-	}
-}
 
