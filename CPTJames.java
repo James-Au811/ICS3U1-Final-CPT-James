@@ -6,8 +6,6 @@ import java.awt.Font;
 public class CPTJames{
 	public static void main(String[] args){
 		
-		boolean blnGame = true;
-		while(true){
 			
 			Console con = new Console("Hangman", 1280, 720);
 			CPTJamesMethods.consoleSetup(con);
@@ -33,7 +31,6 @@ public class CPTJames{
 				jokes(con);
 			}
 		}		
-	}	
 		
 	public static void play(Console con){	
 
@@ -102,7 +99,6 @@ public class CPTJames{
 		
 		
 		con.clear();
-		con.fillRect(0,0,1280,720);
 		
 	}
 	
@@ -125,7 +121,6 @@ public class CPTJames{
 		//Redraw Background for Game
 		con.setDrawColor(Color.BLACK);
 		con.fillRect(0,0,1280,720);
-		con.clear();
 	}
 	
 	public static void jokes(Console con){
@@ -136,38 +131,5 @@ public class CPTJames{
 		con.clear();
 	}
 }	
-		//TextInputFile themes = new TextInputFile("themes.txt");
-		//String strTheme;
-		
-		//con.println("Choose your theme");
-		//while(themes.eof() == false){
-			//strTheme = themes.readLine();
-			//con.println(strTheme);
-		//}
-		//themes.close();
-		//String strChosenTheme;
-		//strChosenTheme = con.readLine();
-		
-		//String strFoods;
-		//String strSports;
-		//String strJobs;
-		//strFoods = "Foods";
-		//strSports = "Sports";
-		//strJobs = "Jobs";
-		
-		//if(strChosenTheme.equals(strFoods)){
-			//TextInputFile food = new TextInputFile("foods.txt");
-			//String strWords[][];
-			//strWords = new String [10][2]
-			//int int
-		//}else if(strChosenTheme.equals(strSports)){
-			//TextInputFile sports = new TextInputFile("sports.txt");
-			//sports.close();
-		//}else if(strChosenTheme.equals(strJobs)){
-			//TextInputFile jobs = new TextInputFile("jobs.txt");
-			//jobs.close();
-		//}else{
-			//con.println("Invalid Theme");
-		//}
 
 
