@@ -91,6 +91,9 @@ public class CPTJames{
 				intRand = (int)(Math.random()*100+1);
 				strGameWord[intRow][intColumn] = strFood;
 				intColumn = intColumn + 1;
+				strGameWord [intRow][intColumn] = intRand + "";
+				intRow = intRow + 1;	
+			}
 			food.close();
 		}else if(intChosenTheme == 2){
 			TextInputFile sport = new TextInputFile("sports.txt");
