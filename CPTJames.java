@@ -6,6 +6,7 @@ import java.awt.Font;
 public class CPTJames{
 	public static void main(String[] args){
 		
+
 			
 			Console con = new Console("Hangman", 1280, 720);
 			CPTJamesMethods.consoleSetup(con);
@@ -32,6 +33,7 @@ public class CPTJames{
 			}
 		}		
 		
+		
 	public static void play(Console con){	
 
 		//Redraw Background for Game
@@ -48,11 +50,20 @@ public class CPTJames{
 		String strTheme;
 		String strChosenTheme;
 		con.println("Choose your theme: ");
+		int intChosenTheme;
+		con.println("Choose your theme by picking the corresponding number: ");
+		int intCount;
+		intCount = 1;
 		while(themes.eof()==false){
 			strTheme = themes.readLine();
 			con.println(strTheme);
+			con.println(strTheme + " - " + intCount);
+			intCount = intCount + 1;
 		}
 		strChosenTheme = con.readLine();
+		intChosenTheme = con.readInt();
+		themes.close();
+		con.clear();
 		
 		//If Statement for Theme Choice
 		String strF;
@@ -70,6 +81,8 @@ public class CPTJames{
 		intRow = 0;
 		intColumn = 0;
 		if(strChosenTheme.equals(strF)){
+		
+		if(intChosenTheme == 1){
 			TextInputFile food = new TextInputFile("foods.txt");
 			strGameWord = new String [intRow][intColumn];
 			String strFood;
@@ -78,18 +91,39 @@ public class CPTJames{
 				intRand = (int)(Math.random()*100+1);
 				strGameWord[intRow][intColumn] = strFood;
 				intColumn = intColumn + 1;
-				con.println(strGameWord[intRow][intColumn]);
+			food.close();
+		}else if(intChosenTheme == 2){
+			TextInputFile sport = new TextInputFile("sports.txt");
+			strGameWord = new String [intRow][intColumn];
+			String strSport;
+			while(sport.eof()==false){
+				strSport = sport.readLine();
+				intRand = (int)(Math.random()*100+1);
+				strGameWord[intRow][intColumn] = strSport;
+				intColumn = intColumn + 1;
 				strGameWord [intRow][intColumn] = intRand + "";
 				intRow = intRow + 1;
-				con.println(strGameWord[intRow][intColumn]);
-			
+			}	
+		}else if(intChosenTheme == 3){
+			TextInputFile job = new TextInputFile("jobs.txt");
+			strGameWord = new String [intRow][intColumn];
+			String strJob;
+			while(job.eof()==false){
+				strJob = job.readLine();
+				intRand = (int)(Math.random()*100+1);
+				strGameWord[intRow][intColumn] = strJob;
+				intColumn = intColumn + 1;
+				strGameWord [intRow][intColumn] = intRand + "";
+				intRow = intRow + 1;	
 			}
-			
+		}else{
+			con.println("Invalid Choice");
+			con.closeConsole();
 		}
+		
 			
 		//Putting User into leaderboard
 		String strLeaderboard[][];
-		int intCount;
 		int intUScore;
 		intCount = 0;
 		intUScore = 0; 
@@ -99,6 +133,7 @@ public class CPTJames{
 		
 		
 		con.clear();
+		con.repaint();
 		
 	}
 	
@@ -121,6 +156,7 @@ public class CPTJames{
 		//Redraw Background for Game
 		con.setDrawColor(Color.BLACK);
 		con.fillRect(0,0,1280,720);
+		con.drawString("Rules", 520, 200);
 	}
 	
 	public static void jokes(Console con){
@@ -131,5 +167,6 @@ public class CPTJames{
 		con.clear();
 	}
 }	
+
 
 
