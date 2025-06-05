@@ -84,6 +84,7 @@ public class CPTJames{
 				intRow = intRow + 1;	
 			}
 			food.close();
+			gamescreen(con);
 		}else if(intChosenTheme == 2){
 			TextInputFile sport = new TextInputFile("sports.txt");
 			strGameWord = new String [intRow][intColumn];
@@ -96,6 +97,8 @@ public class CPTJames{
 				strGameWord [intRow][intColumn] = intRand + "";
 				intRow = intRow + 1;
 			}	
+			sport.close();
+			gamescreen(con);					
 		}else if(intChosenTheme == 3){
 			TextInputFile job = new TextInputFile("jobs.txt");
 			strGameWord = new String [intRow][intColumn];
@@ -108,6 +111,8 @@ public class CPTJames{
 				strGameWord [intRow][intColumn] = intRand + "";
 				intRow = intRow + 1;	
 			}
+			job.close();
+			gamescreen(con);
 		}else{
 			con.println("Invalid Choice");
 			con.closeConsole();
@@ -129,6 +134,11 @@ public class CPTJames{
 		
 	}
 	
+	public static void gamescreen(Console con){
+		con.setDrawColor(Color.BLACK);
+		con.fillRect(0,0,1280,720);
+		con.clear();
+	}
 	public static void highscore(Console con){
 		
 		//Redraw Background for Game
