@@ -48,30 +48,20 @@ public class CPTJames{
 		//Choosing Theme
 		TextInputFile themes = new TextInputFile("themes.txt");
 		String strTheme;
-		String strChosenTheme;
-		con.println("Choose your theme: ");
 		int intChosenTheme;
 		con.println("Choose your theme by picking the corresponding number: ");
 		int intCount;
 		intCount = 1;
 		while(themes.eof()==false){
 			strTheme = themes.readLine();
-			con.println(strTheme);
 			con.println(strTheme + " - " + intCount);
 			intCount = intCount + 1;
 		}
-		strChosenTheme = con.readLine();
 		intChosenTheme = con.readInt();
 		themes.close();
 		con.clear();
 		
 		//If Statement for Theme Choice
-		String strF;
-		strF = "Food";
-		String strS;
-		strS = "Sports";
-		String strJ;
-		strJ = "Jobs";
 		
 		String strGameWord[][];
 		int intRand;
@@ -80,7 +70,6 @@ public class CPTJames{
 		int intColumn;
 		intRow = 0;
 		intColumn = 0;
-		if(strChosenTheme.equals(strF)){
 		
 		if(intChosenTheme == 1){
 			TextInputFile food = new TextInputFile("foods.txt");
