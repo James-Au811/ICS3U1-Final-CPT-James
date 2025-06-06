@@ -67,77 +67,86 @@ public class CPTJames{
 		int intRand;
 		String strWord;
 		int intRow;
-		int intColumn;
 		intRow = 0;
-		intColumn = 0;
+		String strChosenWord;
+		strChosenWord = "";
 		
 		if(intChosenTheme == 1){
 			TextInputFile food = new TextInputFile("foods.txt");
-			strGameWord = new String [intRow][intColumn];
+			strGameWord = new String [10][2];
 			String strFood;
 			while(food.eof()==false){
-				strFood = food.readLine();
 				intRand = (int)(Math.random()*100+1);
-				strGameWord[intRow][intColumn] = strFood;
-				intColumn = intColumn + 1;
-				strGameWord [intRow][intColumn] = intRand + "";
+				strGameWord[intRow][0] = food.readLine();
+				strGameWord [intRow][1] = intRand + "";
 				intRow = intRow + 1;	
 			}
 			food.close();
-			gamescreen(con);
+			for(intCount = 0; intCount < 10-1; intCount++){
+				for(intCount = 0; intCount < 10-1; intCount++){
+					if(Integer.parseInt(strGameWord[intCount][1]) > Integer.parseInt(strGameWord[intCount+1][1])){
+						strChosenWord = strGameWord[intCount][0]; 
+					}
+				}
+			}
+			con.println(strChosenWord);
+		
+			//gamescreen(con);
 		}else if(intChosenTheme == 2){
 			TextInputFile sport = new TextInputFile("sports.txt");
-			strGameWord = new String [intRow][intColumn];
+			strGameWord = new String [10][2];
 			String strSport;
 			while(sport.eof()==false){
 				strSport = sport.readLine();
 				intRand = (int)(Math.random()*100+1);
-				strGameWord[intRow][intColumn] = strSport;
-				intColumn = intColumn + 1;
-				strGameWord [intRow][intColumn] = intRand + "";
+				strGameWord[intRow][0] = strSport;
+				strGameWord [intRow][1] = intRand + "";
 				intRow = intRow + 1;
 			}	
 			sport.close();
-			gamescreen(con);					
+			//gamescreen(con);					
 		}else if(intChosenTheme == 3){
 			TextInputFile job = new TextInputFile("jobs.txt");
-			strGameWord = new String [intRow][intColumn];
+			strGameWord = new String [10][2];
 			String strJob;
 			while(job.eof()==false){
 				strJob = job.readLine();
 				intRand = (int)(Math.random()*100+1);
-				strGameWord[intRow][intColumn] = strJob;
-				intColumn = intColumn + 1;
-				strGameWord [intRow][intColumn] = intRand + "";
+				strGameWord[intRow][0] = strJob;
+				strGameWord [intRow][1] = intRand + "";
 				intRow = intRow + 1;	
 			}
 			job.close();
-			gamescreen(con);
+			//gamescreen(con);*/
 		}else{
 			con.println("Invalid Choice");
 			con.closeConsole();
 		}
-		
-			
-		//Putting User into leaderboard
-		String strLeaderboard[][];
+	
+	//Putting User into leaderboard
+		/*String strLeaderboard[][];
 		int intUScore;
 		intCount = 0;
 		intUScore = 0; 
 		strLeaderboard = new String[100000][2];
 		strLeaderboard[intCount][intUScore] = strUName;
 		intCount = intCount + 1;
-		
-		
 		con.clear();
 		con.repaint();
-		
 	}
-	
 	public static void gamescreen(Console con){
 		con.setDrawColor(Color.BLACK);
 		con.fillRect(0,0,1280,720);
 		con.clear();
+		int intLives;
+		intLives = 6;
+		String strGuess;
+		String strWord;
+		
+		con.println("Guess a letter");
+		strGuess = con.readLine();*/
+		
+		
 	}
 	public static void highscore(Console con){
 		
