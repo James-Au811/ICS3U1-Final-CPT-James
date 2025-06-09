@@ -86,9 +86,6 @@ public class CPTJames{
 					}
 				}
 			}
-		con.clear();
-		gamescreen(con);
-
 		}else if(intChosenTheme == 2){
 			TextInputFile sport = new TextInputFile("sports.txt");
 			strGameWord = new String [10][2];
@@ -130,34 +127,22 @@ public class CPTJames{
 		con.clear();
 		con.repaint();
 	}*/
-	
-	public static void gamescreen(Console con){
-		int intLives;
-		intLives = 6;
-		con.setDrawColor(Color.WHITE);
-		BufferedImage imgbase = con.loadImage("base.png");
-		con.drawImage(imgbase, 700, 10);
-		
-	}
+
 	public static void highscore(Console con){
 		
-		//Redraw Background for Game
 		con.setDrawColor(Color.BLACK);
 		con.fillRect(0,0,1280,720);
 		con.clear();
 	}
 	
 	public static void addtheme(Console con){
-		//Redraw Background for Game
 		con.setDrawColor(Color.BLACK);
 		con.fillRect(0,0,1280,720);
 		con.clear();
+		//Getting Name for new theme
 		String strThemeName;
 		con.println("Name your theme");
 		strThemeName = con.readLine();
-		
-	}
-	
 	public static void help(Console con){
 		//Redraw Background for Game
 		con.setDrawColor(Color.BLACK);
@@ -172,6 +157,3 @@ public class CPTJames{
 		con.drawString("Then you WIN", 570, 500);
 	}
 }	
-
-
-
