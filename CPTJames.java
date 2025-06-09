@@ -86,6 +86,50 @@ public class CPTJames{
 					}
 				}
 			}
+			con.clear();
+			//Basic Setup for Game Screen
+			int intLives;
+			intLives = 6;
+			con.setDrawColor(Color.WHITE);
+			BufferedImage imgbase = con.loadImage("base.png");
+			con.drawImage(imgbase, 900, 10);
+			//Variables for Guessing System
+			boolean blnFinish;
+			blnFinish = false;
+			String strLetter;
+			String strGuess; 
+			String strRevealWord;
+			String strPrevReveal;
+			strPrevReveal = "";
+			strRevealWord = "";
+			int intWordLength = strChosenWord.length();
+			//Letter Guessing System for Game
+			while(blnFinish == false){
+				con.println("Guess a letter (In LOWERCASE)");
+				strGuess = con.readLine();
+				for(intCount = 0; intCount == intWordLength; intCount++){
+					strLetter = strChosenWord.substring(intCount, intCount + 1);
+					if(strGuess.equals(strLetter)){
+						con.print(strLetter);
+						strRevealWord = strRevealWord + strLetter;
+					}else{
+						con.print("_");	
+						strRevealWord = strRevealWord + "_";
+					}
+				if(strRevealWord.equals(strPrevReveal)){
+					intLives = intLives - 1;
+				}
+				if(strRevealWord.equals(strChosenWord)){
+					blnFinish = true;
+					
+					//winscreen method
+				}else{
+					blnFinish = false;
+				}
+				
+				}
+			}
+		
 		}else if(intChosenTheme == 2){
 			TextInputFile sport = new TextInputFile("sports.txt");
 			strGameWord = new String [10][2];
