@@ -174,12 +174,14 @@ public class CPTJames{
 
 	public static void highscore(Console con){
 		
+		//Redraw Background for High score screen
 		con.setDrawColor(Color.BLACK);
 		con.fillRect(0,0,1280,720);
 		con.clear();
 	}
 	
 	public static void addtheme(Console con){
+		//Redraw Background for Add Theme screen
 		con.setDrawColor(Color.BLACK);
 		con.fillRect(0,0,1280,720);
 		con.clear();
