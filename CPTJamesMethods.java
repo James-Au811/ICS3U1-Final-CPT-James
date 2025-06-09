@@ -17,7 +17,6 @@ public class CPTJamesMethods{
 			con.drawString("Add Theme [T]", 520, 400);
 			con.drawString("Quit [Q]", 520, 500);
 			con.drawString("Help [H]", 520, 450);
-			con.drawString("Main Menu to select Game Option", 0, 0);
 			con.drawImage(imgHangman, 500,10);
 			con.setDrawColor(Color.BLACK);	
 	}
