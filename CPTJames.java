@@ -28,11 +28,8 @@ public class CPTJames{
 				con.closeConsole();
 			}else if(Character.toUpperCase(charChoice) == 'H'){
 				help(con);
-			}else if(Character.toUpperCase(charChoice) == 'J'){
-				jokes(con);
 			}
 		}		
-		
 		
 	public static void play(Console con){	
 
@@ -89,9 +86,9 @@ public class CPTJames{
 					}
 				}
 			}
-			con.println(strChosenWord);
-		
-			//gamescreen(con);
+		con.clear();
+		gamescreen(con);
+
 		}else if(intChosenTheme == 2){
 			TextInputFile sport = new TextInputFile("sports.txt");
 			strGameWord = new String [10][2];
@@ -104,7 +101,7 @@ public class CPTJames{
 				intRow = intRow + 1;
 			}	
 			sport.close();
-			//gamescreen(con);					
+	
 		}else if(intChosenTheme == 3){
 			TextInputFile job = new TextInputFile("jobs.txt");
 			strGameWord = new String [10][2];
@@ -117,12 +114,11 @@ public class CPTJames{
 				intRow = intRow + 1;	
 			}
 			job.close();
-			//gamescreen(con);*/
 		}else{
 			con.println("Invalid Choice");
 			con.closeConsole();
 		}
-	
+	}
 	//Putting User into leaderboard
 		/*String strLeaderboard[][];
 		int intUScore;
@@ -133,19 +129,14 @@ public class CPTJames{
 		intCount = intCount + 1;
 		con.clear();
 		con.repaint();
-	}
+	}*/
+	
 	public static void gamescreen(Console con){
-		con.setDrawColor(Color.BLACK);
-		con.fillRect(0,0,1280,720);
-		con.clear();
 		int intLives;
 		intLives = 6;
-		String strGuess;
-		String strWord;
-		
-		con.println("Guess a letter");
-		strGuess = con.readLine();*/
-		
+		con.setDrawColor(Color.WHITE);
+		BufferedImage imgbase = con.loadImage("base.png");
+		con.drawImage(imgbase, 700, 10);
 		
 	}
 	public static void highscore(Console con){
@@ -161,21 +152,24 @@ public class CPTJames{
 		con.setDrawColor(Color.BLACK);
 		con.fillRect(0,0,1280,720);
 		con.clear();
+		String strThemeName;
+		con.println("Name your theme");
+		strThemeName = con.readLine();
+		
 	}
 	
 	public static void help(Console con){
 		//Redraw Background for Game
 		con.setDrawColor(Color.BLACK);
 		con.fillRect(0,0,1280,720);
-		con.drawString("Rules", 520, 200);
-	}
-	
-	public static void jokes(Console con){
-		
-		//Redraw Background for Game
-		con.setDrawColor(Color.BLACK);
-		con.fillRect(0,0,1280,720);
-		con.clear();
+		con.setDrawColor(Color.WHITE);
+		con.drawString("Rules", 600, 200);
+		con.drawString("After choosing your game theme,", 430, 250);
+		con.drawString("Start by guessing a letter in the missing word", 330, 300);
+		con.drawString("- If you guess incorrectly, a piece of the hangman will be added", 280, 350);
+		con.drawString("- If you guess incorrrectly 6 times, you LOSE the game", 330, 400);
+		con.drawString("However, if you manage to guess the word before the hangman is complete,", 280, 450);
+		con.drawString("Then you WIN", 570, 500);
 	}
 }	
 
