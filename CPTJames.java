@@ -187,6 +187,21 @@ public class CPTJames{
 		String strThemeName;
 		con.println("Name your theme");
 		strThemeName = con.readLine();
+		//Adding new theme to theme file
+		TextOutputFile addtheme = new TextOutputFile("themes.txt", true);
+		int intDone;
+		intDone = 0;
+		String strAddWord;
+		strAddWord = "";
+		/*while(intDone == 0){
+			con.println("Add a Word");
+			strAddWord = addtheme.readLine();
+			con.println("Are you done adding words? Yes[1] No[0]");
+			intDone = con.readInt();
+		}
+		addtheme.close();*/
+		}
+
 	public static void help(Console con){
 		//Redraw Background for Game
 		con.setDrawColor(Color.BLACK);
