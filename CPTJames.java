@@ -103,30 +103,70 @@ public class CPTJames{
 			strPrevReveal = "";
 			strRevealWord = "";
 			int intWordLength = strChosenWord.length();
+			boolean blnCorrect = false;
+			
+			// Creates a string array and fills it with underscores
+			String[] strGuessWord = new String[intWordLength];
+			for (intCount = 0; intCount < intWordLength; intCount++) {
+				strGuessWord[intCount] = "_";
+			}
+			
+			
 			//Letter Guessing System for Game
 			while(blnFinish == false){
 				con.println("Guess a letter (In LOWERCASE)");
 				strGuess = con.readLine();
-				for(intCount = 0; intCount == intWordLength; intCount++){
+				blnCorrect = false;
+				
+				// Loops through each letter in the word and checks if its correct
+				for(intCount = 0; intCount < intWordLength; intCount++){
 					strLetter = strChosenWord.substring(intCount, intCount + 1);
 					if(strGuess.equals(strLetter)){
-						con.print(strLetter);
-						strRevealWord = strRevealWord + strLetter;
-					}else{
-						con.print("_");	
-						strRevealWord = strRevealWord + "_";
+						strGuessWord[intCount] = strGuess;
+						blnCorrect = true;
 					}
-				if(strRevealWord.equals(strPrevReveal)){
-					intLives = intLives - 1;
 				}
+				
+				// Print out the reveal word with the missing and correct letters
+				strRevealWord = "";
+				for(intCount = 0; intCount < intWordLength; intCount++){
+					strRevealWord += strGuessWord[intCount];
+				}
+				con.println(strRevealWord);
+				
+				
+				if(!blnCorrect){
+					intLives = intLives - 1;
+					if(intLives == 5){
+						BufferedImage imghead = con.loadImage("head.png");
+						con.drawImage(imghead, 900, 10);
+					}else if(intLives == 4){
+						BufferedImage imgbody = con.loadImage("body.png");
+						con.drawImage(imgbody, 900, 10);
+					}else if(intLives == 3){
+						BufferedImage imglarm = con.loadImage("larm.png");
+						con.drawImage(imglarm, 900, 10);		
+					}else if(intLives == 2){
+						BufferedImage imgrarm = con.loadImage("rarm.png");
+						con.drawImage(imgrarm, 900, 10);	
+					}else{
+						BufferedImage imgLleg = con.loadImage("Lleg.png");
+						con.drawImage(imgLleg, 900, 10);
+					}
+				}
+				
+				// Check if player won
 				if(strRevealWord.equals(strChosenWord)){
 					blnFinish = true;
 					
 					//winscreen method
-				}else{
-					blnFinish = false;
 				}
 				
+				// Check if player lost
+				if(intLives == 0){
+					blnFinish = true;
+					
+					//losescreen method
 				}
 			}
 		
