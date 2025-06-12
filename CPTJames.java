@@ -477,22 +477,48 @@ public class CPTJames{
 		con.clear();
 		//Getting Name for new theme
 		String strThemeName;
-		con.println("Name your theme");
+		con.println("Name your theme: ");
 		strThemeName = con.readLine();
 		//Adding new theme to theme file
 		TextOutputFile addtheme = new TextOutputFile("themes.txt", true);
+		addtheme.println(strThemeName);
+		addtheme.close();
+		TextOutputFile newtheme = new TextOutputFile(strThemeName+".txt", true);
 		int intDone;
 		intDone = 0;
 		String strAddWord;
 		strAddWord = "";
-		/*while(intDone == 0){
-			con.println("Add a Word");
-			strAddWord = addtheme.readLine();
-			con.println("Are you done adding words? Yes[1] No[0]");
-			intDone = con.readInt();
+		boolean blndone;
+		blndone = false;
+		char charInput;
+		int intCount;
+		intCount = 0;
+		int intleng;
+		intleng = 0;
+		
+		
+		while(blndone == false){
+			for(intCount = 0; intCount <= 10; intCount++){
+				con.println("Add a word (minimum 7 letters): ");
+				strAddWord = con.readLine();
+				intleng = strAddWord.length();
+				if(intleng < 7){
+					con.println("Invalid word");
+				}else{
+					newtheme.println(strAddWord);	
+				}
+			}
+			con.println("Are you done writing words Yes[y] No[n]");
+			charInput = con.getChar();
+			System.out.println("Entered character: " + charInput);
+			if(charInput == 'y'){
+				blndone = true;
+				main(con);
+			}
 		}
-		addtheme.close();*/
-		}
+		newtheme.close();
+	}
+
 
 	public static void help(Console con){
 		//Redraw Background for Game
